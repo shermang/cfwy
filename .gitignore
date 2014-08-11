@@ -1,0 +1,6 @@
+# Created by .gitignore support plugin (hsz.mobi)
+sites/default/files
+sites/default/settings.php
+sites/default/default.settings.php
+.idea
+*.iml

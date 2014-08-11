@@ -1,0 +1,12 @@
+name = Signup confirm e-mail
+description = "Adds a field to the signup form to confirm the user's e-mail address."
+dependencies[] = signup
+package = Signup
+core = 6.x
+
+; Information added by Drupal.org packaging script on 2014-01-22
+version = "6.x-1.0+7-dev"
+core = "6.x"
+project = "signup"
+datestamp = "1390351705"
+

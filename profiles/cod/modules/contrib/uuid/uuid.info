@@ -1,0 +1,11 @@
+name = "Universally Unique IDentifier (UUID)"
+description = "Generate Universally Unique IDentifier (UUID) for content."
+core = 6.x
+
+
+; Information added by drush on 2014-03-03
+version = "6.x-1.0-rc2+0-dev"
+core = "6.x"
+project = "uuid"
+datestamp = "1393835310"
+
