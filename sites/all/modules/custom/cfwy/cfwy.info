@@ -1,0 +1,5 @@
+name = CFWY
+description = Provides Custom functionality for CFWY.
+package = CFWY
+dependencies[] = data
+core = 6.x
