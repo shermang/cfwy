@@ -21,7 +21,6 @@ class views_php_plugin_cache extends views_plugin_cache {
     $options = parent::option_definition();
     $options['php_cache_results'] = array('default' => '');
     $options['php_cache_output'] = array('default' => '');
-
     return $options;
   }
 
@@ -30,24 +29,18 @@ class views_php_plugin_cache extends views_plugin_cache {
    */
   function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
-
     $form += views_php_form_element($this,
       FALSE,
       array('php_cache_results', t('Result cache code'), t('The code must return TRUE if the cache is still fresh, FALSE otherwise.'), FALSE),
-      array('$view', '$plugin', '$cache')
+      array('$view', '$plugin', '$cache'),
+      array('cache_options')
     );
     $form += views_php_form_element($this,
       FALSE,
       array('php_cache_output', t('Output cache code'), t('The code must return TRUE if the cache is still fresh, FALSE otherwise.'), FALSE),
-      array('$view', '$plugin', '$cache')
+      array('$view', '$plugin', '$cache'),
+      array('cache_options')
     );
-  }
-
-  /**
-   * Implements views_plugin#options_submit()
-   */
-  function options_submit(&$form, &$form_state) {
-    $form_state['values']['cache_options'] += $form_state['values']['options'];
   }
 
   /**
@@ -74,7 +67,12 @@ class views_php_plugin_cache extends views_plugin_cache {
           //if (!$cutoff || $cache->created > $cutoff) {
             $this->view->result = $cache->data['result'];
             $this->view->total_rows = $cache->data['total_rows'];
-            $this->view->set_current_page = $cache->data['current_page'];
+            if (isset($cache->data['pager'])) { // Views 2
+              $this->view->pager = $cache->data['pager'];
+            }
+            else { // Views 3
+              $this->view->set_current_page = $cache->data['current_page'];
+            }
             $this->view->execute_time = 0;
             return TRUE;
           //}

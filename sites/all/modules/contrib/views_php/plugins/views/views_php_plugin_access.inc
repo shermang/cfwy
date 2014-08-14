@@ -37,15 +37,9 @@ class views_php_plugin_access extends views_plugin_access {
         '$view_name' => t('The name of the view to check.'),
         '$display_id' => t('The ID of the display to check.'),
         '$account' => t('The account to check.'),
-      )
+      ),
+      array('access_options')
     );
-  }
-
-  /**
-   * Implements views_plugin#options_submit().
-   */
-  function options_submit(&$form, &$form_state) {
-    $form_state['values']['access_options']['php_access'] = $form_state['values']['options']['php_access'];
   }
 
   /**
@@ -53,7 +47,7 @@ class views_php_plugin_access extends views_plugin_access {
    */
   function access($account) {
     if (!empty($this->options['php_access'])) {
-      return views_php_check_access($this->options['php_access'], $this->view->name, $this->display->id, $account);
+      return views_php_check_access($this->options['php_access'], $this->view->name, $this->view->current_display, $account);
     }
     return TRUE;
   }
@@ -63,7 +57,7 @@ class views_php_plugin_access extends views_plugin_access {
    */
   function get_access_callback() {
     if (!empty($this->options['php_access'])) {
-      return array('views_php_check_access', array($this->options['php_access'], $this->view->name, $this->display->id));
+      return array('views_php_check_access', array($this->options['php_access'], $this->view->name, $this->view->current_display));
     }
     return TRUE;
   }
