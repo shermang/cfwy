@@ -2,4 +2,5 @@ name = CFWY
 description = Provides Custom functionality for CFWY.
 package = CFWY
 dependencies[] = data
+dependencies[] = views_php
 core = 6.x

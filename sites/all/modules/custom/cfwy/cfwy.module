@@ -50,3 +50,12 @@ function cfwy_views_data_alter(&$views) {
   $pseudo_pk = 'sid';
   _mysql_views_designate_primarykey($dbview_name, $pseudo_pk, $views);
 }
+
+function _cfwy_display_if_equal($field1, $field2, $field3, $else, $negate = FALSE){
+  if($field1 == $field2){
+    $result = $field3;
+  } else {
+    $result = $else;
+  }
+  return $result;
+}
