@@ -91,7 +91,7 @@ class view extends views_db_object {
    * Note: In PHP5 this should be static, but PHP4 doesn't support static
    * methods.
    */
-  function db_objects() {
+  public static function db_objects() {
     return array('display');
   }
 
@@ -1392,7 +1392,7 @@ class view extends views_db_object {
    * that would be very slow.  Buiding the views externally from unified queries is
    * much faster.
    */
-  function load_views() {
+  public static function load_views() {
     $result = db_query("SELECT DISTINCT v.* FROM {views_view} v");
     $views = array();
     $vids = array();
