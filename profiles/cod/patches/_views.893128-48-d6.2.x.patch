@@ -1,0 +1,39 @@
+diff --git a/modules/upload/views_handler_field_upload_fid.inc b/modules/upload/views_handler_field_upload_fid.inc
+index 32356c7..d7ae1d8 100755
+--- a/modules/upload/views_handler_field_upload_fid.inc	
++++ b/modules/upload/views_handler_field_upload_fid.inc
+@@ -29,7 +29,7 @@ class views_handler_field_upload_fid extends views_handler_field_prerender_list
+     );
+   }
+ 
+-  function pre_render($values) {
++  function pre_render(&$values) {
+     $vids = array();
+     $this->items = array();
+ 
+diff --git a/modules/upload/views_handler_field_upload_description.inc b/modules/upload/views_handler_field_upload_description.inc
+index 964925c..ec6ad0c 100755
+--- a/modules/upload/views_handler_field_upload_description.inc	
++++ b/modules/upload/views_handler_field_upload_description.inc
+@@ -26,7 +26,7 @@ class views_handler_field_upload_description extends views_handler_field {
+     );
+   }
+ 
+-  function pre_render($values) {
++  function pre_render(&$values) {
+     if (empty($this->options['link_to_file'])) {
+       return;
+     }
+diff --git a/modules/user/views_handler_field_user_roles.inc b/modules/user/views_handler_field_user_roles.inc
+index c664630..e677f11 100755
+--- a/modules/user/views_handler_field_user_roles.inc	
++++ b/modules/user/views_handler_field_user_roles.inc
+@@ -13,7 +13,7 @@ class views_handler_field_user_roles extends views_handler_field_prerender_list
+     $this->field_alias = $this->aliases['uid'];
+   }
+ 
+-  function pre_render($values) {
++  function pre_render(&$values) {
+     $uids = array();
+     $this->items = array();
+ 
