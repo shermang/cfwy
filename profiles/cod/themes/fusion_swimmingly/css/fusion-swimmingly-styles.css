@@ -1131,23 +1131,3 @@ body.fusion-swimmingly-crowd-background {
   padding: 7.5px;
   text-align: center;
 }
-
-
-/* Views Table theming */
-div.view-webform-letusknow  table td.views-field-last-location-of-cf-employment-7
-{
-  width: 215px;
-}
-div.view-your-view-name table td.views-field-name-2
-{
-  width: 300px;
-}
-div.view-your-view-name table td.views-field-name-3
-{
-  width: 150px;
-}
-div.view-your-view-name table td.views-field-name-4
-{
-  width: 50px;
-}
-/* end Views Table */
