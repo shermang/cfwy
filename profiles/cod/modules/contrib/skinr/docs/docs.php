@@ -1,4 +1,5 @@
 <?php
+// $Id: docs.php,v 1.1 2009/06/11 05:34:34 jgirlygirl Exp $
 /**
  * @file
  * This file contains no working PHP code; it exists to provide additional documentation
@@ -6,7 +7,7 @@
  */
 
 /**
- * @defgroup skinr Skinr API Manual
+ * @mainpage Skinr API Manual
  *
  * Topics:
  * - @ref skinr_hooks
@@ -65,7 +66,7 @@
  * - "indexhandler" is required. It specifies a function that returns an index where
  *   Skinr can find the values in its data structure.
  */
-function hook_skinr_config() {
+function hook_skinr_data() {
   $data['example']['form']['block_admin_configure'] = array(
     'index_handler' => 'example_skinr_index_handler',
     'preprocess_hook' => 'block',
@@ -101,7 +102,6 @@ function hook_skinr_api() {
   return array(
     'api' => 1,
     'path' => drupal_get_path('module', 'modulename'),
-    'skins' => FALSE,
   );
 }
 

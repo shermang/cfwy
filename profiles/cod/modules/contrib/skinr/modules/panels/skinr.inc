@@ -1,4 +1,5 @@
 <?php
+// $Id: skinr.inc,v 1.1.4.4 2010/10/21 22:12:44 jgirlygirl Exp $
 
 /**
  * @file
@@ -68,7 +69,7 @@ function theme_panels_skinr_style_render_region($display, $region_id, $panes, $s
   // Get the Skinr classes for the current panel or display.
   if ($skinr = skinr_get(NULL, $hook, $sid)) {
     // Convert the array to a string fit for printing in the class attribute.
-    $style = implode(' ', skinr_flatten_skins_array($skinr->skins));
+    $style = skinr_style_array_to_string($skinr);
   }
 
   // Wrap the output in a DIV containing the Skinr class.
@@ -93,7 +94,7 @@ function theme_panels_skinr_style_render_pane($content, $pane, $display, $plugin
     // Get the Skinr classes for the current panel or display.
     if ($skinr = skinr_get(NULL, $hook, $sid)) {
       // Convert the array to a string fit for printing in the class attribute.
-      $style = implode(' ', skinr_flatten_skins_array($skinr->skins));
+      $style = skinr_style_array_to_string($skinr);
     }
     if (!empty($content->css_class)) {
       $content->css_class .= ' '. $style;
