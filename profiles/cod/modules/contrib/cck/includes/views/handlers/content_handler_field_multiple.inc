@@ -131,7 +131,7 @@ class content_handler_field_multiple extends content_handler_field {
     // If there are no values to render (displaying a summary, or query returned no results),
     // or if this is not a grouped field, do nothing specific.
     if (isset($this->view->build_info['summary']) || empty($values) || !$this->defer_query) {
-      return parent::pre_render($values);
+      return; //parent::pre_render($values);
     }
 
     $field = $this->content_field;
@@ -152,7 +152,7 @@ class content_handler_field_multiple extends content_handler_field {
     // required relation for which no node data related to the field being
     // processed here is available.
     if (empty($vids)) {
-      return parent::pre_render($values);
+      return;// parent::pre_render($values);
     }
 
     // List columns to retrieve.

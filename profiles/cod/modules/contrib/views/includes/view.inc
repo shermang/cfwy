@@ -1339,7 +1339,7 @@ class view extends views_db_object {
    *  If TRUE, reset this entry in the load cache.
    * @return A view object or NULL if it was not available.
    */
-  function &load($arg, $reset = FALSE) {
+  public static function load($arg, $reset = FALSE) {
     static $cache = array();
 
     // We want a NULL value to return TRUE here, so we can't use isset() or empty().
