@@ -1,8 +1,6 @@
 <?php
 /**
  * Filter by published status
- *
- * @ingroup views_filter_handlers
  */
 class views_handler_filter_node_status extends views_handler_filter {
   function admin_summary() { }

@@ -2,8 +2,6 @@
 
 /**
  * Field handler to translate a language into its readable form.
- *
- * @ingroup views_field_handlers
  */
 class views_handler_field_node_language extends views_handler_field_node {
   function option_definition() {
@@ -24,9 +22,8 @@ class views_handler_field_node_language extends views_handler_field_node {
   }
 
   function render($values) {
-    $languages = views_language_list(empty($this->options['native_language']) ? 'name' : 'native');
-    $value = $this->get_value($values);
-    $value = isset($languages[$value]) ? $languages[$value] : '';
+    $languages = locale_language_list(empty($this->options['native_language']) ? 'name' : 'native');
+    $value = isset($languages[$values->{$this->field_alias}]) ? $languages[$values->{$this->field_alias}] : '';
     return $this->render_link($value, $values);
   }
 }

@@ -6,8 +6,6 @@
 
 /**
  * Argument handler to accept a user id.
- *
- * @ingroup views_argument_handlers
  */
 class views_handler_argument_user_uid extends views_handler_argument_numeric {
   /**
@@ -28,3 +26,4 @@ class views_handler_argument_user_uid extends views_handler_argument_numeric {
     return $titles;
   }
 }
+

@@ -2,8 +2,6 @@
 // $Id:
 /**
  * Field handler to present the path to the node.
- *
- * @ingroup views_field_handlers
  */
 class views_handler_field_node_path extends views_handler_field {
 
@@ -35,7 +33,7 @@ class views_handler_field_node_path extends views_handler_field {
   }
 
   function render($values) {
-    $nid = $this->get_value($values, 'nid');
+    $nid = $values->{$this->aliases['nid']};
     return url("node/$nid", array('absolute' => $this->options['absolute']));
   }
 }

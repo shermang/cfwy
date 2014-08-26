@@ -3,9 +3,7 @@
  * Filter handler for taxonomy terms with depth.
  *
  * This handler is actually part of the node table and has some restrictions,
- * because it uses a subquery to find nodes with.
- *
- * @ingroup views_filter_handlers
+ * because it uses a subquery to find nodes with
  */
 class views_handler_filter_term_node_tid_depth extends views_handler_filter_term_node_tid {
   function operator_options() {
@@ -13,7 +11,7 @@ class views_handler_filter_term_node_tid_depth extends views_handler_filter_term
       'or' => t('Is one of'),
     );
   }
-
+  
   function option_definition() {
     $options = parent::option_definition();
 
@@ -21,7 +19,7 @@ class views_handler_filter_term_node_tid_depth extends views_handler_filter_term
 
     return $options;
   }
-
+  
   function extra_options_form(&$form, &$form_state) {
     parent::extra_options_form($form, $form_state);
 
@@ -37,10 +35,10 @@ class views_handler_filter_term_node_tid_depth extends views_handler_filter_term
     // If no filter values are present, then do nothing.
     if (count($this->value) == 0) {
       return;
-    }
+    } 
     else if (count($this->value) == 1) {
       $placeholder = " = %d";
-    }
+    } 
     else {
       $placeholder = " IN (" . implode(', ', array_fill(0, sizeof($this->value), '%d')) . ")";
     }
@@ -85,7 +83,7 @@ class views_handler_filter_term_node_tid_depth extends views_handler_filter_term
         $last = "th$count";
       }
     }
-
+    
     $this->query->add_where(0, "$this->table_alias.$this->real_field IN ($subquery$where  )", $args);
   }
 }

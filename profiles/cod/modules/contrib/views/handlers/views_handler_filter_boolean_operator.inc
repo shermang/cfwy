@@ -8,12 +8,7 @@
  *    - true-false: True/false (this is the default)
  *    - yes-no: Yes/No
  *    - on-off: On/Off
- *    - enabled-disabled: Enabled/Disabled
  * - accept null: Treat a NULL value as false.
- * - use equal: If you use this flag the query will use = 1 instead of <> 0.
- *   This might be helpful for performance reasons.
- *
- * @ingroup views_filter_handlers
  */
 class views_handler_filter_boolean_operator extends views_handler_filter {
   // exposed filter options
@@ -57,9 +52,6 @@ class views_handler_filter_boolean_operator extends views_handler_filter {
       }
       if ($this->definition['type'] == 'on-off') {
         $this->value_options = array(1 => t('On'), 0 => t('Off'));
-      }
-      if ($this->definition['type'] == 'enabled-disabled') {
-        $this->value_options = array(1 => t('Enabled'), 0 => t('Disabled'));
       }
     }
 
@@ -116,7 +108,7 @@ class views_handler_filter_boolean_operator extends views_handler_filter {
     }
   }
 
-  function value_validate($form, &$form_state) {
+  function value_validate(&$form, &$form_state) {
     if ($form_state['values']['options']['value'] == 'All' && empty($form_state['values']['options']['expose']['optional'])) {
       form_set_error('value', t('You must select a value unless this is an optional exposed filter.'));
     }
